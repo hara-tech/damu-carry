@@ -206,6 +206,74 @@ header h1 {
   font-size: clamp(1rem, 2.5vw, 1.1rem);
   max-width: 600px;
 }
+/* 審査方法セクション */
+.judging-method {
+    padding: clamp(40px, 8vw, 80px) clamp(20px, 10vw, 100px);
+    background: linear-gradient(135deg, #0288d1 0%, #ffffff 100%);
+    text-align: center;
+}
+
+.judging-method .section-title h2 {
+    color: var(--text-light);
+    font-size: clamp(1.8rem, 5vw, 2.5em);
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.judging-method .section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 2px;
+}
+
+.judging-image-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 15px;
+    padding: clamp(20px, 5vw, 40px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.judging-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 767px) {
+    .judging-method {
+        padding: 30px 15px;
+    }
+    
+    .judging-method .section-title h2 {
+        margin-bottom: 30px;
+    }
+    
+    .judging-image-wrapper {
+        padding: 20px;
+        border-radius: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .judging-method .section-title h2 {
+        font-size: 1.6rem;
+    }
+    
+    .judging-image-wrapper {
+        padding: 15px;
+    }
+}
 
 /* お知らせセクション */
 .notice {
