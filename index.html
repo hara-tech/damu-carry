@@ -12,8 +12,6 @@
   <meta property="og:image" content="images/og-image.jpg">
   <link rel="stylesheet" href="style.css">
 </head>
-  
-</script>
 
 <body>
   <!-- ローディング画面 -->
@@ -31,6 +29,7 @@
         <li><a href="index.html">ホーム</a></li>
         <li><a href="#criteria-title">審査基準</a></li>
         <li><a href="#vote">投票</a></li>
+        <li><a href="#judging">審査方法</a></li>
         <li><a href="#notice">お知らせ</a></li>
       </ul>
     </nav>
@@ -52,7 +51,7 @@
       <ul>
         <li><span class="icon">🏔️</span>鳥海ダムらしさ: 鳥海ダムの特徴や魅力が表現されているか。</li>
         <li><span class="icon">🍽️</span>食べたくなるか: 見た目や想像される味が食欲をそそるか。</li>
-        <li><span class="icon">👨‍🍳</span>作りやすさ: 実際に飲食店で提供できる現実的なレシピか。</li>
+        <li><span class="icon">👨‍🍳</span>作りやすさ: 実際にフォレスタ鳥海で提供できる現実的なレシピか。</li>
       </ul>
     </section>
 
@@ -123,45 +122,56 @@
         </label>
         <label class="curry-card">
           <input type="radio" name="curry" value="curry12" hidden>
-          <img src="curry.jpg" alt="カレー12">
+          <img src="curry.jpg" alt="カレー13">
           <h3>カレー-13</h3>
         </label>
         <label class="curry-card">
           <input type="radio" name="curry" value="curry12" hidden>
-          <img src="curry.jpg" alt="カレー12">
+          <img src="curry.jpg" alt="カレー14">
           <h3>カレー-14</h3>
         </label>
         <label class="curry-card">
           <input type="radio" name="curry" value="curry12" hidden>
-          <img src="curry.jpg" alt="カレー12">
+          <img src="curry.jpg" alt="カレー15">
           <h3>カレー-15</h3>
         </label>
         <label class="curry-card">
           <input type="radio" name="curry" value="curry12" hidden>
-          <img src="curry.jpg" alt="カレー12">
+          <img src="curry.jpg" alt="カレー16">
           <h3>カレー-16</h3>
         </label>
         <label class="curry-card">
           <input type="radio" name="curry" value="curry12" hidden>
-          <img src="curry.jpg" alt="カレー12">
+          <img src="curry.jpg" alt="カレー17">
           <h3>カレー-17</h3>
         </label>
         <label class="curry-card">
           <input type="radio" name="curry" value="curry12" hidden>
-          <img src="curry.jpg" alt="カレー12">
+          <img src="curry.jpg" alt="カレー18">
           <h3>カレー-18</h3>
         </label>
         <label class="curry-card">
           <input type="radio" name="curry" value="curry12" hidden>
-          <img src="curry.jpg" alt="カレー12">
+          <img src="curry.jpg" alt="カレー19">
           <h3>カレー-19</h3>
         </label>
         <label class="curry-card">
           <input type="radio" name="curry" value="curry12" hidden>
-          <img src="curry.jpg" alt="カレー12">
+          <img src="curry.jpg" alt="カレー20">
           <h3>カレー-20</h3>
       </div>
       <a href="https://forms.gle/LBkVzUNijyx8Ntxa8" class="btn">投票する</a>
+    </section>
+    <!-- 審査方法セクション -->
+    <section class="judging-method" id="judging">
+      <div class="container">
+        <div class="section-title">
+          <h2>審査方法</h2>
+        </div>
+        <div class="judging-image-wrapper">
+          <img src="sinsa.png" alt="審査方法の詳細" class="judging-image">
+        </div>
+      </div>
     </section>
 
     <!-- お知らせセクション -->
@@ -173,8 +183,9 @@
           <h3>法体の滝 紅葉まつり</h3>
           <p><strong>開催期間：</strong>令和7年 10月18日(土)〜26日(日) 9日間</p>
           <p><strong>会場：</strong>法体園地（由利本荘市鳥海町百宅字奥山76-1）</p>
-          <p>美しい紅葉とともに、様々なイベントをお楽しみいただけます。詳細は<a href="https://yurihonjo-kanko.jp/yrdb/hottainotaki-koyomatsuri/"
-              target="_blank" rel="noopener">公式サイト</a>をご確認ください。</p>
+          <p>美しい紅葉とともに、様々なイベントをお楽しみいただけます。詳細は<a
+              href="https://www.city.yurihonjo.lg.jp/1001506/1001551/1001583/1001695/1012387.html" target="_blank"
+              rel="noopener">公式サイト</a>をご確認ください。</p>
         </div>
       </div>
     </section>
@@ -195,21 +206,42 @@
 
         const mainContent = document.querySelector(".main-content");
         mainContent.style.visibility = "visible";
-      }, 5000); // 2秒後にフェードアウト（お好みで変更可能）
+      }, 100);
     };
+
     // ハンバーガーメニューの制御
     const toggle = document.querySelector('.toggle');
     const menu = document.querySelector('.menu');
+
     toggle.addEventListener('click', () => {
       const open = toggle.classList.toggle('active');
       menu.setAttribute('aria-hidden', !open);
       toggle.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
     });
+
+    // スマホ版でメニュー項目クリック時にメニューを閉じる処理
+    const menuLinks = document.querySelectorAll('.menu a');
+
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        // 画面幅が767px以下（スマホ）の場合のみメニューを閉じる
+        if (window.innerWidth <= 767) {
+          toggle.classList.remove('active');
+          menu.setAttribute('aria-hidden', 'true');
+          toggle.setAttribute('aria-label', 'メニューを開く');
+        }
+      });
+    });
+
+    // 画面サイズ変更時にも対応（横向き→縦向きなど）
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 767 && toggle.classList.contains('active')) {
+        toggle.classList.remove('active');
+        menu.setAttribute('aria-hidden', 'false');
+      }
+    });
   </script>
+
 </body>
 
 </html>
-
-
-
-
